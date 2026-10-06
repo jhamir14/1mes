@@ -1,0 +1,1211 @@
+/* ==========================================================================
+   Dedicatoria Dulce - Romantic Pink & Passionate Red Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0d0208;
+  --bg-gradient: radial-gradient(circle at 50% 50%, #4a041a 0%, #25030e 45%, #0d0208 100%);
+  
+  --pink-bright: #ff0054;
+  --pink-primary: #ff4d6d;
+  --pink-glow: #ff758f;
+  --pink-soft: #ffccd5;
+  --pink-light: #fff0f3;
+
+  --red-bright: #ff1a40;
+  --red-deep: #800f2f;
+  --red-dark: #590d22;
+  
+  --glass-bg: rgba(37, 3, 14, 0.65);
+  --glass-border: rgba(255, 77, 109, 0.3);
+  --glass-hover: rgba(255, 0, 84, 0.25);
+  
+  --font-main: 'Outfit', sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --font-hand: 'Dancing Script', cursive;
+  
+  --text-light: #fff0f3;
+  --text-muted: rgba(255, 204, 213, 0.88);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  background-color: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  font-family: var(--font-main);
+  color: var(--text-light);
+  position: relative;
+}
+
+/* ==========================================================================
+   Canvas Element
+   ========================================================================== */
+
+#space-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 0, 84, 0.12) 0%, rgba(128, 15, 47, 0.04) 50%, transparent 100%);
+}
+
+/* ==========================================================================
+   Top Glass Bar Navigation
+   ========================================================================== */
+
+.top-nav-bar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 94%;
+  max-width: 900px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  background: rgba(37, 3, 14, 0.94);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 77, 109, 0.2);
+}
+
+.nav-group-left, .nav-group-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  background: rgba(255, 77, 109, 0.12);
+  border: 1px solid var(--glass-border);
+  color: var(--pink-soft);
+  padding: 0.45rem 0.9rem;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--pink-bright);
+  color: #ffffff;
+  border-color: var(--pink-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255, 0, 84, 0.6);
+}
+
+.kiss-action-btn {
+  background: linear-gradient(135deg, var(--pink-bright) 0%, var(--red-bright) 100%);
+  color: #ffffff;
+  border-color: var(--pink-glow);
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(255, 0, 84, 0.4);
+}
+
+.kiss-action-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 84, 0.8);
+}
+
+.audio-action-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.audio-action-btn.playing {
+  border-color: var(--pink-bright) !important;
+  color: #ffffff !important;
+  background: var(--pink-bright) !important;
+  box-shadow: 0 0 15px rgba(255, 0, 84, 0.8);
+}
+
+/* ==========================================================================
+   Centered Text Overlay
+   ========================================================================== */
+
+.center-overlay {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  max-width: 600px;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.header-badge {
+  background: rgba(59, 4, 25, 0.92);
+  border: 1px solid var(--glass-border);
+  padding: 0.35rem 1.1rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.6rem;
+  animation: floatDown 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.header-badge .heart-icon {
+  color: var(--pink-bright);
+  font-size: 0.9rem;
+}
+
+.header-badge span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--pink-soft);
+}
+
+.main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #ff8095 45%, #ff0054 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  line-height: 1.15;
+}
+
+.red-heart-symbol {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 0.2rem 0;
+  text-shadow: 0 0 20px rgba(255, 0, 84, 0.9);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  animation: pulseBeat 1.4s infinite ease-in-out;
+}
+
+.red-heart-symbol:hover {
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 12px rgba(255, 0, 84, 0.9));
+}
+
+.subtitle-handwritten {
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+  color: var(--pink-glow);
+  text-shadow: 0 0 18px rgba(255, 117, 143, 0.9);
+  opacity: 0.98;
+  margin-top: 0.1rem;
+}
+
+/* Live Time Pill */
+.live-counter-pill {
+  margin-top: 0.6rem;
+  background: rgba(255, 0, 84, 0.15);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  color: var(--pink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.live-counter-pill:hover {
+  background: rgba(255, 0, 84, 0.3);
+  border-color: var(--pink-bright);
+  transform: scale(1.04);
+}
+
+.submessage {
+  font-size: clamp(0.88rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+  max-width: 520px;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 2.8em;
+}
+
+/* Compliment Button */
+.compliment-btn {
+  margin-top: 0.9rem;
+  background: linear-gradient(135deg, rgba(255, 0, 84, 0.35) 0%, rgba(128, 15, 47, 0.5) 100%);
+  border: 1px solid var(--pink-glow);
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(255, 0, 84, 0.3);
+}
+
+.compliment-btn:hover {
+  background: linear-gradient(135deg, var(--pink-bright) 0%, var(--red-bright) 100%);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 0 30px rgba(255, 0, 84, 0.8);
+}
+
+/* ==========================================================================
+   Glassmorphism Modals
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(13, 2, 8, 0.94);
+  z-index: 300;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: rgba(37, 3, 14, 0.96);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transform: translateY(10px) scale(0.98);
+  transition: transform 0.15s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-card.modal-large {
+  max-width: 680px;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 77, 109, 0.25);
+  padding-bottom: 0.7rem;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--pink-soft);
+}
+
+.modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--pink-glow);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--pink-bright);
+}
+
+.modal-body-scroll {
+  overflow-y: auto;
+  padding-right: 0.4rem;
+}
+
+.modal-body-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal-body-scroll::-webkit-scrollbar-thumb {
+  background: var(--pink-bright);
+  border-radius: 10px;
+}
+
+/* Tabs */
+.tab-buttons {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+  background: rgba(20, 2, 8, 0.6);
+  padding: 0.3rem;
+  border-radius: 30px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--pink-soft);
+  padding: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: var(--pink-bright);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 0, 84, 0.6);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Note Content */
+.note-greeting {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--pink-glow);
+  margin-bottom: 0.6rem;
+}
+
+.note-body {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.note-signature {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--pink-soft);
+  text-align: right;
+}
+
+/* Timeline */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 0.9rem;
+  background: rgba(255, 0, 84, 0.08);
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 77, 109, 0.2);
+}
+
+.timeline-icon {
+  font-size: 1.4rem;
+}
+
+.timeline-text h4 {
+  color: var(--pink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-text p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+/* Reasons List */
+.reasons-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.reasons-list li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  background: rgba(255, 0, 84, 0.06);
+  padding: 0.5rem 0.8rem;
+  border-radius: 12px;
+  border-left: 3px solid var(--pink-bright);
+}
+
+.reasons-list li span {
+  font-weight: 700;
+  color: var(--pink-glow);
+  margin-right: 0.3rem;
+}
+
+/* Promises List */
+.promises-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.promises-list li {
+  font-size: 0.9rem;
+  color: var(--pink-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 77, 109, 0.1);
+  padding: 0.7rem 1rem;
+  border-radius: 14px;
+}
+
+.promises-list li i {
+  color: var(--pink-bright);
+}
+
+/* ==========================================================================
+   Coupons Grid
+   ========================================================================== */
+
+.coupons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.9rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.coupon-card {
+  background: rgba(59, 4, 25, 0.7);
+  border: 1px dashed var(--pink-glow);
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coupon-card:hover {
+  border-style: solid;
+  border-color: var(--pink-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(255, 0, 84, 0.4);
+}
+
+.coupon-icon {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.coupon-info h4 {
+  color: var(--pink-soft);
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+}
+
+.coupon-info p {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-bottom: 0.8rem;
+}
+
+.redeem-btn {
+  background: var(--pink-bright);
+  border: none;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.redeem-btn:hover {
+  background: var(--red-bright);
+  transform: scale(1.08);
+}
+
+.redeem-btn.redeemed {
+  background: #2b091e;
+  color: var(--pink-glow);
+  border: 1px solid var(--pink-glow);
+  cursor: default;
+}
+
+/* ==========================================================================
+   Ticket Oficial de Canje
+   ========================================================================== */
+
+.ticket-card {
+  max-width: 440px;
+  background: rgba(30, 2, 12, 0.98);
+  border: 2px solid var(--pink-bright);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 0, 84, 0.4);
+}
+
+.ticket-container {
+  background: linear-gradient(135deg, rgba(60, 4, 25, 0.85) 0%, rgba(20, 2, 10, 0.9) 100%);
+  border: 1px dashed var(--pink-glow);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+  position: relative;
+}
+
+.ticket-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, var(--pink-bright) 0%, var(--red-bright) 100%);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+
+.ticket-coupon-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--pink-light);
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 15px rgba(255, 0, 84, 0.6);
+}
+
+.ticket-coupon-desc {
+  font-size: 0.85rem;
+  color: var(--pink-soft);
+  margin-bottom: 1rem;
+}
+
+.ticket-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  background: rgba(10, 1, 5, 0.6);
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 77, 109, 0.2);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.ticket-meta-item .meta-lbl {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--pink-glow);
+  letter-spacing: 0.8px;
+}
+
+.ticket-meta-item .meta-val {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ticket-barcode-area {
+  margin-bottom: 1rem;
+}
+
+.fake-barcode {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  color: var(--pink-soft);
+  opacity: 0.75;
+  margin-bottom: 0.4rem;
+}
+
+.ticket-note {
+  font-size: 0.78rem;
+  color: var(--pink-soft);
+  font-style: italic;
+}
+
+.ticket-done-btn {
+  background: linear-gradient(135deg, var(--pink-bright) 0%, var(--red-bright) 100%);
+  border: none;
+  color: #fff;
+  padding: 0.55rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(255, 0, 84, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.ticket-done-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Kiss Floating Toast & Particles
+   ========================================================================== */
+
+.kiss-toast-container {
+  position: fixed;
+  top: 4.8rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.kiss-toast-container.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.kiss-toast-content {
+  background: rgba(37, 3, 14, 0.95);
+  border: 1px solid var(--pink-bright);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 0, 84, 0.4);
+  border-radius: 40px;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  backdrop-filter: blur(10px);
+}
+
+.kiss-toast-icon {
+  font-size: 1.6rem;
+  animation: pulseBeat 1.2s infinite ease-in-out;
+}
+
+.kiss-toast-text h4 {
+  font-size: 0.88rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.kiss-toast-text p {
+  font-size: 0.75rem;
+  color: var(--pink-soft);
+}
+
+.floating-kiss-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 1.8rem;
+  animation: floatKissUp 2.4s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+@keyframes floatKissUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(calc(var(--drift-x, 0px) * 0.2), -40px) scale(1.2) rotate(var(--rot, 0deg));
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--drift-x, 0px), -360px) scale(0.9) rotate(calc(var(--rot, 0deg) * 2));
+  }
+}
+
+/* ==========================================================================
+   Polaroid Gallery Grid & Image Controls
+   ========================================================================== */
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-height: 68vh;
+  overflow-y: auto;
+  padding: 0.6rem 0.4rem;
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 0.5rem 0.5rem 0.8rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  transform: rotate(-2deg);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.polaroid-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid-card:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+.polaroid-card:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 14px 32px rgba(255, 0, 84, 0.5);
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  height: 140px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #1a030b;
+  position: relative;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pos-bench { object-position: center 30%; }
+.pos-dark { object-position: center center; }
+.pos-dulce { object-position: center 25%; }
+.pos-plushies { object-position: center 62%; }
+
+.polaroid-card:hover .polaroid-img {
+  transform: scale(1.05);
+}
+
+.polaroid-caption {
+  font-family: var(--font-hand);
+  color: #1a030b;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   Counter Modal Display
+   ========================================================================== */
+
+.counter-display-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+
+.time-unit {
+  background: rgba(255, 0, 84, 0.12);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 0.8rem 0.4rem;
+  text-align: center;
+}
+
+.time-val {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--pink-soft);
+  text-shadow: 0 0 10px rgba(255, 0, 84, 0.8);
+}
+
+.time-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heartbeat-bar-container {
+  text-align: center;
+  margin-top: 1rem;
+  background: rgba(59, 4, 25, 0.6);
+  padding: 0.8rem;
+  border-radius: 14px;
+}
+
+.heartbeat-text {
+  font-size: 0.82rem;
+  color: var(--pink-glow);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes floatDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseBeat {
+  0%, 100% { transform: scale(1) translateZ(0); }
+  50% { transform: scale(1.18) translateZ(0); }
+}
+
+/* Mobile Responsiveness & Compact Typography */
+@media (max-width: 650px) {
+  html, body {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Top Nav Bar Mobile Adjustments */
+  .top-nav-bar {
+    top: 0.3rem;
+    width: 96%;
+    padding: 0.25rem 0.35rem;
+    gap: 0.25rem;
+  }
+
+  .nav-group-left, .nav-group-right {
+    gap: 0.25rem;
+  }
+
+  .btn-label {
+    display: none !important;
+  }
+
+  .nav-btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .kiss-action-btn {
+    width: auto;
+    padding: 0 0.55rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+  }
+
+  .kiss-action-btn .btn-label {
+    display: inline !important;
+  }
+
+  /* Center Overlay Mobile Scaling */
+  .center-overlay {
+    top: 53%;
+    width: 96%;
+    padding: 0.2rem;
+    gap: 0;
+  }
+
+  .header-badge {
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .header-badge span {
+    font-size: 0.62rem;
+    letter-spacing: 1.2px;
+  }
+
+  .main-title {
+    font-size: clamp(1.35rem, 5vw, 1.8rem);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .red-heart-symbol {
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    margin: 0.05rem 0;
+  }
+
+  .subtitle-handwritten {
+    font-size: clamp(1.15rem, 4.2vw, 1.5rem);
+    margin-top: 0;
+  }
+
+  .live-counter-pill {
+    margin-top: 0.35rem;
+    padding: 0.28rem 0.65rem;
+    font-size: 0.7rem;
+    max-width: 96%;
+  }
+
+  .submessage {
+    font-size: 0.78rem;
+    margin-top: 0.35rem;
+    line-height: 1.35;
+    min-height: auto;
+    max-width: 92%;
+  }
+
+  .compliment-btn {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  /* Modal Mobile Optimizations */
+  .modal-card {
+    width: 95%;
+    max-height: 90vh;
+    padding: 1rem 0.75rem;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+
+  .tab-buttons {
+    gap: 0.2rem;
+    padding: 0.18rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-btn {
+    padding: 0.35rem 0.25rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .note-greeting {
+    font-size: 1.25rem;
+  }
+
+  .note-body {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .coupons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    max-height: 62vh;
+  }
+
+  .coupon-card {
+    padding: 0.7rem;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 0.5rem;
+  }
+
+  .coupon-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  .coupon-info {
+    flex: 1;
+  }
+
+  .coupon-info h4 {
+    font-size: 0.82rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .coupon-info p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+
+  .redeem-btn {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .polaroid-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    max-height: 68vh;
+    padding: 0.2rem;
+  }
+
+  .polaroid-card {
+    padding: 0.4rem 0.4rem 0.6rem 0.4rem;
+  }
+
+  .polaroid-img-wrapper {
+    height: 105px;
+  }
+
+  .polaroid-caption {
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+  }
+
+  .counter-display-box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+  }
+
+  .time-val {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Romantic Welcome Autoplay Entrance Overlay
+   ========================================================================== */
+
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(13, 2, 8, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.7s ease;
+  cursor: pointer;
+}
+
+.welcome-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-card {
+  background: rgba(37, 3, 14, 0.85);
+  border: 1.5px solid var(--pink-bright);
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 0 35px rgba(255, 0, 84, 0.45), inset 0 0 20px rgba(255, 0, 84, 0.15);
+  animation: floatDown 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.welcome-heart {
+  font-size: 3.2rem;
+  margin-bottom: 0.8rem;
+  animation: pulseHeart 1.6s infinite ease-in-out;
+}
+
+.welcome-card h2 {
+  font-family: var(--font-hand);
+  font-size: 2.3rem;
+  color: var(--pink-soft);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 0, 84, 0.7);
+}
+
+.welcome-card p {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+}
+
+.welcome-btn {
+  background: linear-gradient(135deg, var(--pink-bright) 0%, var(--red-bright) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.85rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(255, 0, 84, 0.6);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.welcome-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 84, 0.9);
+}
+

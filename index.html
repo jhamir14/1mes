@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description"
+    content="Dedicatoria especial de Aniversario para Dulce con música romántica, carta de amor, cupones, galería de recuerdos y contador de tiempo juntos en tonos rosa y rojo.">
+  <title>Feliz Aniversario Dulce ❤️🌹</title>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css?v=13.0">
+</head>
+
+<body>
+
+  <!-- Background Space & Heart Particle Canvas -->
+  <canvas id="space-canvas"></canvas>
+
+
+
+  <!-- Background Romantic Audio -->
+  <audio id="bg-romantic-audio" src="audio/until-i-found-you-piano.mp4" autoplay loop preload="auto">
+    <source src="audio/until-i-found-you-piano.mp4" type="audio/mp4">
+    <source src="audio/until-i-found-you-piano.mp3" type="audio/mpeg">
+    <source src="audio/until-i-found-you-piano.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- Romantic Welcome Autoplay Overlay -->
+  <div class="welcome-overlay" id="welcome-overlay">
+    <div class="welcome-card" id="welcome-card">
+      <div class="welcome-heart">💌</div>
+      <h2>Para mi Dulce amor</h2>
+      <p>Una dedicatoria especial de nuestro aniversario con nuestra canción ❤️</p>
+      <button class="welcome-btn" id="welcome-start-btn">
+        <i class="fas fa-play"></i> Toca para abrir 🌹
+      </button>
+    </div>
+  </div>
+
+  <!-- Top Glass Bar Navigation -->
+  <nav class="top-nav-bar">
+    <div class="nav-group-left">
+      <button class="nav-btn" id="note-toggle" title="Carta de Amor">
+        <i class="fas fa-envelope-open-text"></i>
+        <span class="btn-label">Carta</span>
+      </button>
+      <button class="nav-btn" id="coupons-toggle" title="Cupones de Amor">
+        <i class="fas fa-ticket-alt"></i>
+        <span class="btn-label">Cupones</span>
+      </button>
+      <button class="nav-btn" id="gallery-toggle" title="Galería de Recuerdos">
+        <i class="fas fa-images"></i>
+        <span class="btn-label">Recuerdos</span>
+      </button>
+      <button class="nav-btn" id="counter-toggle" title="Tiempo Juntos">
+        <i class="fas fa-clock"></i>
+        <span class="btn-label">Contador</span>
+      </button>
+    </div>
+
+    <div class="nav-group-right">
+      <button class="nav-btn kiss-action-btn" id="kiss-btn" title="Enviar Beso Virtual 💋">
+        <i class="fas fa-kiss-wink-heart"></i>
+        <span class="btn-label">Beso 💋</span>
+      </button>
+      <button class="nav-btn audio-action-btn" id="audio-toggle" title="Until I Found You — Piano Version">
+        <i class="fas fa-music"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Floating Kiss Romantic Toast -->
+  <div class="kiss-toast-container" id="kiss-toast">
+    <div class="kiss-toast-content">
+      <div class="kiss-toast-icon">💋</div>
+      <div class="kiss-toast-text">
+        <h4 id="kiss-toast-msg">¡Un beso para mi dulce amor! 💋</h4>
+        <p id="kiss-toast-count">Besos enviados de Jhamir: 1 💋</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Centered Hero Content -->
+  <main class="center-overlay">
+    <header class="header-badge">
+      <i class="fas fa-heart heart-icon"></i>
+      <span>Feliz Aniversario Mi Vida</span>
+    </header>
+
+    <h1 class="main-title">Para Dulce</h1>
+    <div class="red-heart-symbol" id="pulse-heart-center">❤️</div>
+    <h2 class="subtitle-handwritten">Feliz Aniversario Mi Amor 🌹</h2>
+
+    <!-- Live Time Badge Pill -->
+    <div class="live-counter-pill" id="hero-live-pill" title="Ver contador detallado">
+      <i class="fas fa-hourglass-half pill-icon"></i>
+      <span id="hero-time-string">Calculando nuestro tiempo juntos...</span>
+    </div>
+
+    <!-- Main Message Display -->
+    <p class="submessage" id="display-message">Gracias por este hermoso tiempo juntos. Cada estrella en el universo
+      brilla solo para ti ✨</p>
+
+    <!-- Compliment Generator Button -->
+    <button class="compliment-btn" id="reason-btn">
+      <i class="fas fa-sparkles"></i>
+      <span>¿Por qué te amo? 🌹</span>
+    </button>
+  </main>
+
+  <!-- 1. MODAL CARTA MULTITRAMO -->
+  <div class="modal-overlay" id="note-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">💌 Dedicatoria para Dulce</h3>
+        <button class="close-btn" id="close-note-btn">&times;</button>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="tab-letter">Carta</button>
+        <button class="tab-btn" data-tab="tab-timeline">Nuestra Historia</button>
+        <button class="tab-btn" data-tab="tab-reasons">10 Razones</button>
+        <button class="tab-btn" data-tab="tab-promises">Promesas</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Tab 1: Carta -->
+        <div class="tab-content active" id="tab-letter">
+          <p class="note-greeting">Para mi hermosa Dulce,</p>
+          <p class="note-body">
+            Mi amor en este tan especial día cumplimos 1 mesecito juntos, y me siento feliz de poder pasar esta fecha a
+            tu lado. De verdad me sorprende lo rápido que pasa el tiempo a tu lado, siento que tan solo ayer te pedí
+            para estar, desde ese entonces me haces tan feliz día a día con cada momento a tu lado aunque como toda
+            pareja tuvimos nuestras peleas me alegra poder arreglar siempre nuestras peleas, espero que siempre sea así.
+            Espero que te guste este pequeño detalle. Gracias por llenar mis días de alegría, por cada risa compartida y
+            por ser mi lugar seguro en todo el mundo. Este aniversario es solo uno de los muchos capítulos hermosos que
+            escribiremos juntos. Te amo con todo mi corazón, en cada galaxia y en cada instante de mi vida. ❤️🌹
+          </p>
+          <p class="note-signature">Con todo mi amor por siempre, 🥂💖</p>
+        </div>
+
+        <!-- Tab 2: Historia -->
+        <div class="tab-content" id="tab-timeline">
+          <div class="timeline-container">
+            <div class="timeline-item">
+              <div class="timeline-icon">✨</div>
+              <div class="timeline-text">
+                <h4>El día que nos conocimos</h4>
+                <p>Te conoci un dia cualqueira en el mercado, desde un prinpicio me atraias mucho, un tiempo despues
+                  empezamos a hablar y luego el dia del cumple mi papá fue la primera vez que socializamos y empezo
+                  nuestro romanco mi dulce amor.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">🌹</div>
+              <div class="timeline-text">
+                <h4>Nuestro Primer Beso</h4>
+                <p>Nuestro primer beso e acto de amor, un dia que nunca olvidare, la vez que fui a recogerte de la
+                  academia y de un instante al otro me diste el primero beso, fue un dia tan lindo y un instante mágico
+                  donde el tiempo se detuvo y supe que eras tú.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">💖</div>
+              <div class="timeline-text">
+                <h4>Hoy: Nuestro Aniversario</h4>
+                <p>Hoy es un dia muy especial para mi, estamos cumpliendo nuestro primer mes juntos y te lo quiero
+                  agradecer a ti por cada momento que hemos compartido juntos y espero que sean muchos mas,
+                  celebrando cada segundo a tu lado con la misma ilusión del primer día.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: 10 Razones -->
+        <div class="tab-content" id="tab-reasons">
+          <ol class="reasons-list">
+            <li><span>1.</span> Tu sonrisa ilumina hasta el día más oscuro.</li>
+            <li><span>2.</span> Tu forma única de abrazarme y hacerme sentir en casa.</li>
+            <li><span>3.</span> Tu gracia y la ternura con la que me tratas.</li>
+            <li><span>4.</span> Tus risas espontáneas que me hacen sonreír siempre.</li>
+            <li><span>5.</span> La forma dulce en la que me miras.</li>
+            <li><span>6.</span> Ser mi mejor amiga, mi cómplice y mi amor verdadero.</li>
+            <li><span>7.</span> Por apoyarme y estar siempre a mi lado.</li>
+            <li><span>8.</span> Por hacer de los detalles simples momentos inolvidables.</li>
+            <li><span>9.</span> Por ser tan hermosa por dentro y por fuera.</li>
+            <li><span>10.</span> Simplemente por ser TÚ, el amor de mi vida. ❤️</li>
+          </ol>
+        </div>
+
+        <!-- Tab 4: Promesas -->
+        <div class="tab-content" id="tab-promises">
+          <ul class="promises-list">
+            <li><i class="fas fa-heart"></i> Prometo hacerte sonreír todos los días de mi vida.</li>
+            <li><i class="fas fa-heart"></i> Prometo cuidarte, respetarte y escucharte siempre.</li>
+            <li><i class="fas fa-heart"></i> Prometo ser tu refugio y tu apoyo en cada sueño.</li>
+            <li><i class="fas fa-heart"></i> Prometo nunca dejar de conquistarte como el primer día.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MODAL CUPONES DE AMOR -->
+  <div class="modal-overlay" id="coupons-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">🎟️ Cupones Románticos</h3>
+        <button class="close-btn" id="close-coupons-btn">&times;</button>
+      </div>
+      <p class="modal-subtitle">¡Haz clic en un cupón para canjearlo conmigo cuando quieras! ❤️</p>
+
+      <div class="coupons-grid">
+        <div class="coupon-card">
+          <div class="coupon-icon">🍕🎬</div>
+          <div class="coupon-info">
+            <h4>Dia de Pelis & Comida</h4>
+            <p>Válido para elegir la película y tu comida favorita.</p>
+          </div>
+          <button class="redeem-btn">Canjear ❤️</button>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-icon">💆🏻‍♀️🧴✨</div>
+          <div class="coupon-info">
+            <h4>Noche de SkinCare</h4>
+            <p>Válido por una noche de skincare y consentirte mucho mi amor.</p>
+          </div>
+          <button class="redeem-btn">Canjear ❤️</button>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-icon">👑🫡</div>
+          <div class="coupon-info">
+            <h4>Hacerte caso en todo lo que quieras</h4>
+            <p>Válido por todo lo que quieras mi amor.</p>
+          </div>
+          <button class="redeem-btn">Canjear ❤️</button>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-icon">🤗💋</div>
+          <div class="coupon-info">
+            <h4>Abrazo & Besos Infinitos</h4>
+            <p>Válido para minutos ininterrumpidos de caricias y besos.</p>
+          </div>
+          <button class="redeem-btn">Canjear ❤️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TICKET DE CANJE DE CUPÓN -->
+  <div class="modal-overlay" id="ticket-modal">
+    <div class="modal-card ticket-card">
+      <div class="modal-header">
+        <h3 class="modal-title">🎟️ Ticket Oficial de Canje</h3>
+        <button class="close-btn" id="close-ticket-btn">&times;</button>
+      </div>
+
+      <div class="ticket-container">
+        <div class="ticket-header-badge">
+          <i class="fas fa-heart"></i>
+          <span>VALE DE AMOR AUTORIZADO</span>
+        </div>
+        
+        <h2 class="ticket-coupon-title" id="ticket-coupon-name">Día de Pelis & Comida</h2>
+        <p class="ticket-coupon-desc" id="ticket-coupon-detail">Válido para elegir la película y tu comida favorita.</p>
+
+        <div class="ticket-meta-grid">
+          <div class="ticket-meta-item">
+            <span class="meta-lbl">Beneficiaria</span>
+            <span class="meta-val">Dulce ❤️</span>
+          </div>
+          <div class="ticket-meta-item">
+            <span class="meta-lbl">Concedido por</span>
+            <span class="meta-val">Jhamir 💕</span>
+          </div>
+          <div class="ticket-meta-item">
+            <span class="meta-lbl">Fecha de canje</span>
+            <span class="meta-val" id="ticket-date">--/--/----</span>
+          </div>
+          <div class="ticket-meta-item">
+            <span class="meta-lbl">Código de amor</span>
+            <span class="meta-val" id="ticket-code">#AMOR-001</span>
+          </div>
+        </div>
+
+        <div class="ticket-barcode-area">
+          <div class="fake-barcode">||| |||| | ||||| || |||||| | |||| ||</div>
+          <p class="ticket-note">¡Tómale captura o muéstramelo para hacerlo realidad juntos mi amor! 🌹✨</p>
+        </div>
+
+        <button class="ticket-done-btn" id="ticket-done-btn">¡Entendido, mi amor! 🥰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MODAL GALERÍA DE RECUERDOS (POLAROIDS) -->
+  <div class="modal-overlay" id="gallery-modal">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <h3 class="modal-title">📸 Galería de Memorias & Momentos</h3>
+        <button class="close-btn" id="close-gallery-btn">&times;</button>
+      </div>
+
+      <div class="polaroid-grid">
+        <div class="polaroid-card">
+          <div class="polaroid-img-wrapper">
+            <img src="images/foto1.jpg" alt="Beso y detalle romántico" class="polaroid-img pos-bench" />
+          </div>
+          <p class="polaroid-caption">Nuestro beso mágico 🌹💋</p>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="polaroid-img-wrapper">
+            <img src="images/foto2.jpg" alt="Momentos juntos" class="polaroid-img pos-dark" />
+          </div>
+          <p class="polaroid-caption">Miradas de amor 💖✨</p>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="polaroid-img-wrapper">
+            <img src="images/foto3.jpg" alt="Carita hermosa de Dulce" class="polaroid-img pos-dulce" />
+          </div>
+          <p class="polaroid-caption">Tu carita hermosa 🥰🌸</p>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="polaroid-img-wrapper">
+            <img src="images/foto4.jpg" alt="Cita entre peluchitos" class="polaroid-img pos-plushies" />
+          </div>
+          <p class="polaroid-caption">Juntos en cada aventura 🧸❤️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MODAL CONTADOR DE TIEMPO DETALLADO -->
+  <div class="modal-overlay" id="counter-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">⏱️ Nuestro Contador de Amor</h3>
+        <button class="close-btn" id="close-counter-btn">&times;</button>
+      </div>
+      <p class="modal-subtitle">Juntos desde el 06/09/2026. Cada segundo a tu lado cuenta y es el mejor regalo de mi
+        vida ❤️</p>
+
+      <div class="counter-display-box">
+        <div class="time-unit">
+          <span class="time-val" id="cnt-days">0</span>
+          <span class="time-lbl">Días</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-val" id="cnt-hours">00</span>
+          <span class="time-lbl">Horas</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-val" id="cnt-mins">00</span>
+          <span class="time-lbl">Minutos</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-val" id="cnt-secs">00</span>
+          <span class="time-lbl">Segundos</span>
+        </div>
+      </div>
+
+      <div class="heartbeat-bar-container">
+        <div class="heartbeat-line"></div>
+        <span class="heartbeat-text">Latidos de amor constantes por ti mi amor 💓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="app.js?v=14.0"></script>
+</body>
+
+</html>
